@@ -68,7 +68,7 @@ Then print `bingo_cards.pdf` as needed.
 
 ## Word list
 
-`words_example.txt` is pre-filled with the 20 prompts from `bingo.pdf`
-(including the "Knows how the couple first met" prompt, which appears twice
-in that source list). Edit this file directly, or point `--words` at your
+`words_example.txt` is pre-filled with 20 wedding icebreaker prompts
+(including a "Knows how the couple first met" prompt that appears twice, by
+design). Edit this file directly, or point `--words` at your
 own file, to change the prompts.
