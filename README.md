@@ -5,7 +5,7 @@ prompt (e.g. "Has a pet") plus a blank line for writing a guest's name.
 Cards use an elegant PT Serif typeface, a soft color frame, and a
 zebra-tinted grid, cycling through a wedding-friendly color palette across
 cards (`fonts/` holds the embedded PT Serif font files, licensed under the
-SIL Open Font License — see `fonts/OFL.txt`; `bingo_maker.py` holds the
+SIL Open Font License — see `fonts/OFL.txt`; `bingo/config.py` holds the
 `PALETTE` of colors — edit either to restyle).
 
 ## Setup (one-time)
@@ -65,6 +65,22 @@ Landscape, single card rotated 90° to fill the page:
 ```
 
 Then print `bingo_cards.pdf` as needed.
+
+## Project structure
+
+`bingo_maker.py` is a thin entry point; the code lives in the `bingo/` package:
+
+| Module | Responsibility |
+|---|---|
+| `bingo/config.py` | Grid size, text-zone ratio, color `PALETTE` |
+| `bingo/words.py` | Loading the word list and picking words for each card |
+| `bingo/fonts.py` | Registering the embedded PT Serif fonts |
+| `bingo/colors.py` | Color helpers (`tint`) |
+| `bingo/layout.py` | Per-page layouts (`LAYOUTS`) and scaling to the page region |
+| `bingo/text_fit.py` | Shrinking and wrapping prompt text to fit a cell |
+| `bingo/card_renderer.py` | Drawing one card (frame, title, rule, subtitle, grid, cells) |
+| `bingo/pdf_builder.py` | Laying cards out on pages, cut guide, writing the PDF (incl. landscape rotation) |
+| `bingo/cli.py` | Command-line arguments and `main` |
 
 ## Word list
 
